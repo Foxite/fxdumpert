@@ -67,7 +67,10 @@ def get_video(video_id):
         ts_request = requests.get(ts_file)
         output.extend(ts_request.content)
 
-    return bytes(output)
+    res = make_response(bytes(output))
+
+    res.content_type = "video/mp2t"
+    return res
 
 if __name__ == '__main__':
     app.run(debug=True)
