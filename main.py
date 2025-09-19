@@ -41,7 +41,6 @@ def get_embed(video_id):
 
     res = make_response(body)
 
-    res.status_code = 307
     res.headers["Location"] = dumpert_url
     return res
 
